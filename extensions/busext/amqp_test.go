@@ -17,9 +17,11 @@ var (
 )
 
 func init() {
-	bus = BusExt{NS: "bus_"}
+	bus = BusExt{
+		NS: "bus_",
+		ErrorLogger: custom_logger.NewSentryErrorLogger(),
+	}
 
-	bus.ErrorLogger = custom_logger.NewSentryErrorLogger()
 	app, _ = gobay.CreateApp(
 		"../../testdata",
 		"testing",

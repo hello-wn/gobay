@@ -327,7 +327,7 @@ func (b *BusExt) init(conn *amqp.Connection) error {
 			b.ErrorLogger.Printf("declare exchange: %v failed: %v\n", exchange, err)
 			return err
 		}
-		b.ErrorLogger.Printf("declare exchange: %v succeeded\n", exchange)
+		log.Printf("declare exchange: %v succeeded\n", exchange)
 	}
 
 	for _, queue := range b.config.GetStringSlice("queues") {
